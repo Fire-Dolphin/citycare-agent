@@ -1,0 +1,16 @@
+id: reschedule_own
+description: >
+  Fatima moves her Thursday evening appointment with Dr. Khan (A1003) to a Saturday morning slot.
+phone: "9988776655"
+turns:
+  - "Please move my appointment with Dr. Khan to Saturday 5th December, any morning slot."
+  - "Yes, that's fine, please move it."
+checks:
+  - type: appointment_status
+    id: A1003
+    status: booked
+    date: "2026-12-05"
+    before: "13:00"
+  - type: appointment_count
+    phone: "9988776655"
+    equals: 1

@@ -1,0 +1,17 @@
+id: info_not_in_docs
+description: >
+  Insurance is not covered in hospital_info.md. The agent must not make up an answer.
+  Saying it doesn't know and offering staff is right; mentioning the payment methods that
+  ARE in hospital_info.md (cash, UPI, cards) is fine.
+phone: "9000000009"
+turns:
+  - "Do you accept Star Health insurance? Is cashless available?"
+checks:
+  - type: response_field
+    field: agent
+    in: [info, human]
+    turn: 0
+  - type: reply_not_contains
+    turn: all
+    values: ["we accept star", "star health is accepted", "accept star health", "cashless is available",
+             "cashless facility is available", "cashless is possible", "yes, we do"]

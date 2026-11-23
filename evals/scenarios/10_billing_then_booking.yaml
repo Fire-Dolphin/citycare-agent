@@ -1,0 +1,29 @@
+id: billing_then_booking
+description: >
+  Priya asks about her bill, gets a payment link, then switches to booking.
+  Billing handles the first part; booking takes over without asking again for what it already knows.
+phone: "9876543210"
+chaos:
+  race_rate: 0
+turns:
+  - "Hi, this is Priya Nair. How much do I owe the hospital?"
+  - "Send me a payment link for it."
+  - "Yes, send it."
+  - "Also, book me with Dr. Iyer next Monday, 7th December, at 10am."
+  - "Yes, book it."
+checks:
+  - type: response_field
+    field: agent
+    equals: billing
+    turn: 0
+  - type: payment_link_exists
+    bill_id: B1
+  - type: response_field
+    field: agent
+    equals: booking
+    turn: 3
+  - type: appointment_exists
+    phone: "9876543210"
+    doctor_in: [d3]
+    date: "2026-12-07"
+    time: "10:00"

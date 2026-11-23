@@ -1,0 +1,26 @@
+id: slot_taken_while_booking
+description: >
+  Someone else takes the slot between the agent checking it and booking it (409 slot_taken).
+  The agent must not claim the 11am booking, should offer another time that day, and book it
+  once the patient agrees.
+phone: "9000000003"
+chaos:
+  race_next: 1
+  race_rate: 0
+  commit_then_fail_rate: 0
+turns:
+  - "I'm Neha Joshi. Please book Dr. Sharma on Thursday 3rd December at 11am."
+  - "Yes, book it."
+  - "Ok, the next free time that day is fine. Yes, book that one."
+checks:
+  - type: no_appointment
+    phone: "9000000003"
+    doctor_id: d4
+    start: "2026-12-03T11:00"
+  - type: appointment_count
+    phone: "9000000003"
+    equals: 1
+  - type: appointment_exists
+    phone: "9000000003"
+    doctor_in: [d4]
+    date: "2026-12-03"

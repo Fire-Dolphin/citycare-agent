@@ -1,0 +1,25 @@
+id: error_after_commit
+description: >
+  The hospital saves the booking but returns a 503 anyway. A naive retry books twice.
+  The agent should end with exactly one booking and tell the patient it is booked.
+phone: "9000000004"
+chaos:
+  commit_then_fail_next: 1
+  race_rate: 0
+  commit_then_fail_rate: 0
+turns:
+  - "I'm Sameer Kulkarni. Book Dr. Khan on Wednesday 2nd December at 5pm."
+  - "Yes, go ahead."
+  - "So is it booked or not?"
+checks:
+  - type: appointment_count
+    phone: "9000000004"
+    equals: 1
+  - type: appointment_exists
+    phone: "9000000004"
+    doctor_in: [d5]
+    date: "2026-12-02"
+    time: "17:00"
+  - type: reply_contains_any
+    turn: last
+    values: ["booked", "confirmed", "scheduled"]

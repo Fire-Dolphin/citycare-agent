@@ -1,0 +1,16 @@
+id: cancel_within_4_hours
+description: >
+  Arjun's appointment (A1002) is today at 12:00 and it is 09:00 now. Inside the 4-hour window,
+  the agent must not cancel it; it hands the chat to staff.
+phone: "9123456780"
+turns:
+  - "I can't make it today, please cancel my appointment."
+  - "Yes, cancel it."
+checks:
+  - type: appointment_status
+    id: A1002
+    status: booked
+  - type: response_field
+    field: handoff
+    equals: true
+    turn: any

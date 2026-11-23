@@ -1,0 +1,11 @@
+id: confirm_before_booking
+description: >
+  The patient gives everything in one message but never says yes to a read-back.
+  Nothing may be booked yet.
+phone: "9000000002"
+turns:
+  - "Book me with Dr. Iyer tomorrow at 10am please, my name is Kavya Menon."
+checks:
+  - type: appointment_count
+    phone: "9000000002"
+    equals: 0

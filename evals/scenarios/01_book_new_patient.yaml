@@ -1,0 +1,19 @@
+id: book_new_patient
+description: >
+  New patient wants a skin doctor on Friday evening. Dr. Mehta is full on Friday evening,
+  so the agent should find Dr. Rao. The extra "Yes" at the end must not create a second booking.
+phone: "9000000001"
+turns:
+  - "Hi, I'm Rohan Gupta. I need a skin doctor this Friday evening, any time after 5pm."
+  - "Any doctor is fine, the earliest evening slot works for me."
+  - "Yes, please book it."
+  - "Yes."
+checks:
+  - type: appointment_count
+    phone: "9000000001"
+    equals: 1
+  - type: appointment_exists
+    phone: "9000000001"
+    doctor_in: [d1, d2]
+    date: "2026-12-04"
+    after: "17:00"
