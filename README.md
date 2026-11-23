@@ -18,10 +18,7 @@ You'll add `agentcore/` (the runtime) and your agents.
 
 ## Your own copy
 
-**Don't fork this repo.** Forks are listed on this repo's page, where every other candidate can see them. Instead, either:
-
-- click **Use this template → Create a new repository**, or
-- create an empty repo on GitHub, then:
+Clone or fork this repo into your own GitHub repo, and work there. To clone it into a new repo, create an empty repo on GitHub, then:
 
 ```bash
 git clone <this repo's URL> citycare-agent
