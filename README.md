@@ -16,21 +16,21 @@ Starter code for the **agentcore** assignment. Read [`context.md`](context.md) f
 
 You'll add `agentcore/` (the runtime) and your agents.
 
-## Your own private copy
+## Your own copy
 
-**Don't fork this repo.** A fork of a public repo is public, so other candidates could see your work. Instead, either:
+**Don't fork this repo.** Forks are listed on this repo's page, where every other candidate can see them. Instead, either:
 
-- click **Use this template → Create a new repository**, and choose **Private**, or
-- create an empty **private** repo on GitHub, then:
+- click **Use this template → Create a new repository**, or
+- create an empty repo on GitHub, then:
 
 ```bash
 git clone <this repo's URL> citycare-agent
 cd citycare-agent
-git remote set-url origin <your private repo's URL>
+git remote set-url origin <your new repo's URL>
 git push -u origin main
 ```
 
-Then add the GitHub account named on the assignment page as a collaborator (Settings → Collaborators). Commit and push as you go.
+Your copy can be **public**, or **private** with the **Fire-Dolphin** account invited as a collaborator (Settings → Collaborators → Add people). Either way, you send us its link when you reply to our email. Commit and push as you go.
 
 ## Setup
 
